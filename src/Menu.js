@@ -1,4 +1,5 @@
-import React, { Component, PropTypes } from 'react';
+import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import classNames from 'classnames';
 
 export default class PureMenu extends Component {
@@ -15,7 +16,8 @@ export default class PureMenu extends Component {
     render() {
         const { className, horizontal, scrollable, ...props } = this.props;
         const cls = classNames(
-            'pure-menu', className,
+            'pure-menu',
+            className,
             horizontal && 'pure-menu-horizontal',
             scrollable && 'pure-menu-scrollable'
         );

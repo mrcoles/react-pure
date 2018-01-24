@@ -1,4 +1,5 @@
-import React, { Component, PropTypes } from 'react';
+import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import classNames from 'classnames';
 
 export default class PureButton extends Component {
@@ -15,16 +16,26 @@ export default class PureButton extends Component {
     };
 
     render() {
-        const { className, href, active, disabled, primary, ...props } = this.props;
+        const {
+            className,
+            href,
+            active,
+            disabled,
+            primary,
+            ...props
+        } = this.props;
         const cls = classNames(
-            'pure-button', className,
+            'pure-button',
+            className,
             active && 'pure-button-active',
             disabled && 'pure-button-disabled',
             primary && 'pure-button-primary'
         );
 
-        return href
-            ? <a href={href} className={cls} {...props} />
-            : <button className={cls} disabled={disabled} {...props} />;
+        return href ? (
+            <a href={href} className={cls} {...props} />
+        ) : (
+            <button className={cls} disabled={disabled} {...props} />
+        );
     }
 }

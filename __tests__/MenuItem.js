@@ -1,5 +1,5 @@
 import React from 'react';
-import { renderIntoDocument } from 'react-addons-test-utils';
+import { renderIntoDocument } from 'react-dom/test-utils';
 import { findDOMNode } from 'react-dom';
 
 jest.dontMock('../src/MenuItem');
@@ -7,7 +7,7 @@ import MenuItem from '../src/MenuItem';
 
 describe('MenuItem', () => {
     it('renders a li with class `pure-menu-item` by default', () => {
-        const component = renderIntoDocument(<MenuItem className='my-item' />);
+        const component = renderIntoDocument(<MenuItem className="my-item" />);
         const node = findDOMNode(component);
         expect(node.className).toBe('pure-menu-item my-item');
     });

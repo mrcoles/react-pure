@@ -1,5 +1,5 @@
 import React from 'react';
-import { renderIntoDocument } from 'react-addons-test-utils';
+import { renderIntoDocument } from 'react-dom/test-utils';
 import { findDOMNode } from 'react-dom';
 
 jest.dontMock('../src/Button');
@@ -12,19 +12,19 @@ describe('Button', () => {
     });
 
     it('renders an anchor the `href` property is set', () => {
-        const component = renderIntoDocument(<Button href='#' />);
+        const component = renderIntoDocument(<Button href="#" />);
         const node = findDOMNode(component);
         expect(node.tagName).toBe('A');
     });
 
     it('transfers the `href` property to the anchor', () => {
-        const component = renderIntoDocument(<Button href='#test' />);
+        const component = renderIntoDocument(<Button href="#test" />);
         const node = findDOMNode(component);
         expect(node.href).toMatch(/#test$/);
     });
 
     it('adds the `pure-button` class', () => {
-        const component = renderIntoDocument(<Button className='my-button' />);
+        const component = renderIntoDocument(<Button className="my-button" />);
         const node = findDOMNode(component);
         expect(node.className).toBe('pure-button my-button');
     });

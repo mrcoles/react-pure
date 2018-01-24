@@ -1,4 +1,5 @@
-import React, { Component, PropTypes } from 'react';
+import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import classNames from 'classnames';
 
 export default class PureTable extends Component {
@@ -15,9 +16,16 @@ export default class PureTable extends Component {
     };
 
     render() {
-        const { className, bordered, horizontal, striped, ...props } = this.props;
+        const {
+            className,
+            bordered,
+            horizontal,
+            striped,
+            ...props
+        } = this.props;
         const cls = classNames(
-            'pure-table', className,
+            'pure-table',
+            className,
             bordered && 'pure-table-bordered',
             horizontal && 'pure-table-horizontal',
             striped && 'pure-table-striped'
